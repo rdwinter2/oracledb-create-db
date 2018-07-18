@@ -38,7 +38,10 @@ None
 
 log_archive_dest
 system tablespace and other schema owners
-
+dbhome demo directory
+global name
+diagnostic dest - world access
+auditing aud$
 
 ### Planned Additions
 
