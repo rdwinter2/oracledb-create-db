@@ -1,2 +1,60 @@
 ---
-# defaults file for role_template
+
+db_domain: oracledb.localdomain
+
+oracle_user: oracle
+oracle_inventory_group: oinstall
+oracle_sid: orcl
+oracle_global_name: "{{ oracle_sid }}.{{ db_domain }}"
+oracle_uniquename: "{{ oracle_sid }}"
+oracle_base: /u01/app/oracle
+oracle_version: 12.2.0
+oracle_home: "{{ oracle_base }}/product/{{ oracle_version }}/dbhome_1"
+# real password should be kept in an ansible vault
+sys_password: oracle1
+system_password: oracle1
+
+sga_max_size: 19G
+sga_target: 16G
+pga_aggregate_target: 6G
+
+database_files_location: "{{ oracle_base }}/oradata/{{ oracle_uniquename }}"
+fast_recovery_area: "{{ oracle_base }}/fast_recovery_area/{{ oracle_uniquename }}"
+database_character_set: AL32UTF8
+national_character_set: AL16UTF16
+
+audit_file_dest: "{{ oracle_base }}/admin/{{ oracle_uniquename }}/adump"
+audit_trail: db
+compatible: "{{ oracle_version }}"
+db_block_size: 8192BYTES
+db_create_file_dest: "{{ oracle_base }}/oradata/{{ oracle_uniquename }}/"
+db_name: "{{ oracle_sid }}"
+db_recovery_file_dest: "{{ oracle_base }}/fast_recovery_area/{{ oracle_uniquename }}"
+db_recovery_file_dest_size: 8016MB
+diagnostic_dest: "{{ oracle_base }}"
+dispatchers: (PROTOCOL=TCP) (SERVICE={SID}XDB)
+open_cursors: 300
+processes: 300
+remote_login_passwordfile: EXCLUSIVE
+undo_tablespace: UNDOTBS1
+nls_language: AMERICAN
+nls_territory: AMERICA
+local_listener: LISTENER
+databaseType: MULTIPURPOSE
+
+# Description   : database conf type as Single Instance, Real Application Cluster or Real Application Cluster One Nodes database
+# Valid values  : SI\RAC\RACONENODE
+database_config_type: SI
+
+# Description   : Enterprise Manager Configuration Type
+# Valid values  : CENTRAL|DBEXPRESS|BOTH|NONE
+em_config_type: DBEXPRESS
+
+# Description   : Enterprise Manager Configuration Type
+# Valid values  : Check Oracle12c Administrator's Guide
+em_express_port: 5500
+
+# Description   : Specifies the storage on which the database is to be created
+# Valid values  : FS (CFS for RAC), ASM
+storage_type: FS
+

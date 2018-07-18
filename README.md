@@ -36,6 +36,10 @@ None
 
 ## Road Map
 
+log_archive_dest
+system tablespace and other schema owners
+
+
 ### Planned Additions
 
 ### Current Issues
