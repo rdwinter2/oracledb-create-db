@@ -1,3 +1,9 @@
+# ignore ansible-galaxy imported roles
+/tests/roles
+!/tests/roles/oracledb-create-db
+
+
+
 # Created by https://www.gitignore.io/api/intellij+all
 
 ### Intellij+all ###

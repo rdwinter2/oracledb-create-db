@@ -1,9 +1,11 @@
-#!/usr/bin/env bas
+#!/usr/bin/env bash
 cd /opt/ansible
 . /opt/ansible/hacking/env-setup -q
 cd $OLDPWD
 
 PATH=/opt/ansible/bin:$PATH
+
+ansible-galaxy install --role-file requirements.yml --roles-path roles
 
 ansible-playbook -v test.yml -i inventory --forks 5 --syntax-check
 
